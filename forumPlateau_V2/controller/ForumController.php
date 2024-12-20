@@ -26,12 +26,12 @@ class ForumController extends AbstractController implements ControllerInterface{
         ];
     }
 
-    public function listTopicsByCategory($id) {
+    public function listSujetsByCategorie($id) {
 
         $sujetManager = new SujetManager();
         $categoryManager = new CategorieManager();
         $category = $categoryManager->findOneById($id);
-        $topics = $sujetManager->findTopicsByCategory($id);
+        $topics = $sujetManager->findSujetsByCategorie($id);
 
         return [
             "view" => VIEW_DIR."forum/listTopics.php",
@@ -41,5 +41,9 @@ class ForumController extends AbstractController implements ControllerInterface{
                 "topics" => $topics
             ]
         ];
+    }
+
+    public function listMessagesBySujet($id) {
+        
     }
 }

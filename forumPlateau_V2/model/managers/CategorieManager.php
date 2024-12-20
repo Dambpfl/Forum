@@ -14,7 +14,7 @@ class CategorieManager extends Manager{
         parent::connect();
     }
 
-    public function findTopicsByCategory($id) {
+    public function findSujetsByCategorie($id) {
 
         $sql = "SELECT * 
                 FROM ".$this->tableName." t 
