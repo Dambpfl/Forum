@@ -49,8 +49,8 @@ final class Categorie extends Entity{
      *
      * @return  self
      */ 
-    public function setNomCategorie($name){
-        $this->name = $nomCategorie;
+    public function setNomCategorie($nomCategorie){
+        $this->nomCategorie = $nomCategorie;
         return $this;
     }
 

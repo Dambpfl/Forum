@@ -7,7 +7,7 @@ use App\DAO;
 class MessageManager extends Manager{
 
     protected $className = "Model\Entities\Message";
-    protected $tableName = "Message";
+    protected $tableName = "message";
 
     public function __construct(){
         parent::connect();
