@@ -5,7 +5,7 @@
 
 <h2>Liste des messages</h2>
 
-<h3>Nom du sujet</h3>
+<h3><?= $sujets->getTitre() ?></h3>
 
 <?php
 foreach($messages as $message ){ ?>
