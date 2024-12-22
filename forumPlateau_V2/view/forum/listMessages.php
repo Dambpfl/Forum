@@ -1,5 +1,6 @@
 <?php
-    $categories = $result["data"]['categories']; 
+    $sujets = $result["data"]["sujet"];
+    $messages = $result["data"]["message"];
 ?>
 
 <h2>Liste des messages</h2>
