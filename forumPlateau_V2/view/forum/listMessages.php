@@ -9,5 +9,5 @@
 
 <?php
 foreach($messages as $message ){ ?>
-    <p><?= $message->getTexte() ?></a></p>
+    <p><?= $message->getTexte() ?></a> par : <?= $message->getUtilisateur() ?></p>
 <?php }
