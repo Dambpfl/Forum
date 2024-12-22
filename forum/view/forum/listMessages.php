@@ -10,4 +10,13 @@
 <?php
 foreach($messages as $message ){ ?>
     <p><?= $message->getTexte() ?></a> par : <?= $message->getUtilisateur() ?></p>
-<?php }
+<?php } ?>
+
+<h1>Répondre</h1>
+
+<form action="???" method="post">
+    <label for="pseudo"><?= $message->getUtilisateur() ?></label> <!-- A changer pour nom utilisateur connecter -->
+    <input type="text">
+    <button type="submit">Poster</button>
+  
+</form>
