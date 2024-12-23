@@ -95,11 +95,19 @@ class ForumController extends AbstractController implements ControllerInterface{
             if (isset($_POST["submit"])) {
 
                 $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                    if($titre) {
-                        $sujetManager->add(["categorie_id" => $id,
-                                            "utilisateur_id" => $id,
-                                            "titre" => $titre]);
+                    if($titre && $texte) {
+                        $idSujet = $sujetManager->add(["categorie_id" => $id,
+                                                       "utilisateur_id" => $utilisateur,
+                                                       "titre" => $titre]);
+
+                    if ($texte) {
+                        $messageManager = new MessageManager();
+                        $messageManager->add(["sujet_id" => $idSujet,
+                                              "utilisateur_id" => $utilisateur,
+                                              "texte" => $texte]);
+                        }
                     }
             }
         $this->redirectTo("forum", "listSujetsByCategorie", $id);
