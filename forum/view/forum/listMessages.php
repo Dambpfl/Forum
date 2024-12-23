@@ -14,7 +14,7 @@ foreach($messages as $message ){ ?>
 
 <h1>Répondre</h1>
 
-<form action="???" method="post">
+<form action="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $message->getId() ?>" method="post">
     <label for="pseudo"><?= $message->getUtilisateur() ?></label> <!-- A changer pour nom utilisateur connecter -->
     <input type="text">
     <button type="submit">Poster</button>
