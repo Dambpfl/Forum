@@ -9,7 +9,7 @@
 
 <?php
 foreach($sujets as $sujet ){ ?>
-    <p><a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $categories->getId() ?>"><?= $sujet ?></a> par <?= $sujet->getUtilisateur() ?></p>
+    <p><a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>"><?= $sujet ?></a> par <?= $sujet->getUtilisateur() ?></p>
 <?php } ?>
 
 <h2>Crée un nouveau sujet</h2>
@@ -19,7 +19,7 @@ foreach($sujets as $sujet ){ ?>
         <input type="text" name="titre">
     </p>
     <p>
-        <textarea name="message" id="message" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
+        <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
     </p>
     <p>
         <input type="submit" name="submit" value="Poster">

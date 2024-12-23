@@ -107,7 +107,7 @@ class ForumController extends AbstractController implements ControllerInterface{
                         $messageManager->add(["sujet_id" => $idSujet,
                                               "utilisateur_id" => $utilisateur,
                                               "texte" => $texte]);
-                        }
+                                            }
                     }
             }
         $this->redirectTo("forum", "listSujetsByCategorie", $id);
