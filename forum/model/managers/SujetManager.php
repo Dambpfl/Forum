@@ -27,4 +27,16 @@ class SujetManager extends Manager{
             $this->className
         );
     }
+
+    public function updateSujet($id) {
+
+        $sql = "UPDATE sujet
+                SET verrouillage = CASE
+                    WHEN verrouillage = 1 THEN 0
+                    WHEN verrouillage = 0 THEN 1
+                END
+                WHERE id_sujet = :id";
+
+        DAO::update($sql, ['id' => $id]);
+    }
 }

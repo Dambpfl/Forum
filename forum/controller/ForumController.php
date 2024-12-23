@@ -112,4 +112,14 @@ class ForumController extends AbstractController implements ControllerInterface{
             }
         $this->redirectTo("forum", "listSujetsByCategorie", $id);
     }
+
+    public function verrouillerSujet($id) {
+
+        $sujetManager = new SujetManager();
+        $sujet = $sujetManager->findOneById($id);
+
+        $sujetManager->updateSujet($id, $verrouillage);
+        
+        $this->redirectTo("forum", "listSujetsByCategorie", $id);
+    }
 }

@@ -8,8 +8,23 @@
 <h2><?= $categories->getNomCategorie(); ?></h2>
 
 <?php
-foreach($sujets as $sujet ){ ?>
-    <p><a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>"><?= $sujet ?></a> par <?= $sujet->getUtilisateur() ?></p>
+foreach($sujets as $sujet ){ 
+    $verrouillage = $sujet->getVerrouillage();
+    ?>
+    
+    <p><a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>">
+        <?= $sujet->getTitre(); ?>
+    </a>
+    par <?= $sujet->getUtilisateur() ?></p>
+
+    <?php if($verrouillage === 1) { ?>
+        <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Verrouiller</a>
+
+    <?php } else { ?>
+            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Deverrouiller</a> 
+        <?php  } ?>
+        
+
 <?php } ?>
 
 <h2>Crée un nouveau sujet</h2>
