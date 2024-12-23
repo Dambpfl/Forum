@@ -1,11 +1,11 @@
 <?php
-    $categories = $result["data"]['category']; 
-    $sujets = $result["data"]['topics']; 
+    $categorie = $result["data"]['categorie']; 
+    $sujets = $result["data"]['sujet']; 
 ?>
 
 <h1>Liste des Sujets</h1>
 
-<h2><?= $categories->getNomCategorie(); ?></h2>
+<h2><?= $categorie->getNomCategorie();  ?></h2>
 
 <?php
 foreach($sujets as $sujet ){ 
@@ -18,18 +18,17 @@ foreach($sujets as $sujet ){
     par <?= $sujet->getUtilisateur() ?></p>
 
     <?php if($verrouillage === 1) { ?>
-        <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Verrouiller</a>
-
+        <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Deverrouiller</a>
+       
     <?php } else { ?>
-            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Deverrouiller</a> 
+            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Verrouiller</a> 
         <?php  } ?>
         
-
 <?php } ?>
 
 <h2>Crée un nouveau sujet</h2>
-<form action="index.php?ctrl=forum&action=addSujet&id=<?= $categories->getId() ?>" method="post">
-    <p>
+<form action="index.php?ctrl=forum&action=addSujet&id=<?= $categorie->getId() ?>" method="post">
+    <p> 
         <label for="titre">Titre :</label>
         <input type="text" name="titre">
     </p>

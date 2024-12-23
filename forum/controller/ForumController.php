@@ -32,15 +32,15 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         $sujetManager = new SujetManager();
         $categorieManager = new CategorieManager();
-        $categories = $categorieManager->findOneById($id);
+        $categorie = $categorieManager->findOneById($id);
         $sujets = $sujetManager->findSujetsByCategorie($id);
 
         return [
             "view" => VIEW_DIR."forum/listSujets.php",
-            "meta_description" => "Liste des topics par catégorie : ".$categories,
+            "meta_description" => "Liste des topics par catégorie : ".$categorie,
             "data" => [
-                "category" => $categories,
-                "topics" => $sujets
+                "categorie" => $categorie,
+                "sujet" => $sujets
             ]
         ];
     }
@@ -117,9 +117,13 @@ class ForumController extends AbstractController implements ControllerInterface{
 
         $sujetManager = new SujetManager();
         $sujet = $sujetManager->findOneById($id);
-
-        $sujetManager->updateSujet($id, $verrouillage);
         
+
+        if ($sujet) {
+            $sujetManager->updateSujet($id);
+
+        }
+
         $this->redirectTo("forum", "listSujetsByCategorie", $id);
     }
 }
