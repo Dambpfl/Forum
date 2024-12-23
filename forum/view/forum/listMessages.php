@@ -14,9 +14,14 @@ foreach($messages as $message ){ ?>
 
 <h1>Répondre</h1>
 
-<form action="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $message->getId() ?>" method="post">
-    <label for="pseudo"><?= $message->getUtilisateur() ?></label> <!-- A changer pour nom utilisateur connecter -->
-    <input type="text">
-    <button type="submit">Poster</button>
+<form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="post">
+    <p>
+        <label for="pseudo"><?= $message->getUtilisateur() ?> <!-- A changer pour nom utilisateur connecter -->
+            <input type="text" name="texte">
+        </label>
+    </p>
+    <p>
+        <input type="submit" name="submit" value="Poster">
+    </p>
   
 </form>

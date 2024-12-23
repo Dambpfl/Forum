@@ -7,6 +7,7 @@ use App\ControllerInterface;
 use Model\Managers\CategorieManager;
 use Model\Managers\SujetManager;
 use Model\Managers\MessageManager;
+use Model\Managers\UtilisateurManager;
 
 class ForumController extends AbstractController implements ControllerInterface{
 
@@ -60,5 +61,26 @@ class ForumController extends AbstractController implements ControllerInterface{
             ]
         ];
         
+    }
+
+    public function addMessage($id) {
+
+       $messageManager = new MessageManager();
+       $sujetManager = new SujetManager();
+       $utilisateurManager = new UtilisateurManager();
+       $utilisateur = 1;
+       $sujet = $sujetManager->findOneById($id);
+
+            if (isset($_POST["submit"])) {
+
+                $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                    if($texte) {
+                    $messageManager->add(["sujet_id" => $id,
+                                          "utilisateur_id" => $utilisateur,
+                                          "texte" => $texte]);
+                    }
+            }
+        $this->redirectTo("forum", "listMessagesBySujet", $id);
     }
 }

@@ -24,17 +24,4 @@ class MessageManager extends Manager{
             $this->className
         );
     }
-
-    public function addMessage() {
-
-        if(isset($_POST["submit"])) {
-
-            $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-            $sql = "INSERT INTO  message(texte)
-                    VALUES (:texte)";
-
-            DAO::insert($sql, ['texte' => $texte]);
-        }
-    }
 }
