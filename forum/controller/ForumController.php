@@ -83,4 +83,25 @@ class ForumController extends AbstractController implements ControllerInterface{
             }
         $this->redirectTo("forum", "listMessagesBySujet", $id);
     }
+
+    public function addSujet($id) {
+        
+        $categorieManager = new CategorieManager();
+        $sujetManager = new SujetManager();
+        $utilisateurManager = new UtilisateurManager();
+        $utilisateur = 1;
+        $categorie = $categorieManager->findOneById($id);
+
+            if (isset($_POST["submit"])) {
+
+                $titre = filter_input(INPUT_POST, "titre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                    if($titre) {
+                        $sujetManager->add(["categorie_id" => $id,
+                                            "utilisateur_id" => $id,
+                                            "titre" => $titre]);
+                    }
+            }
+        $this->redirectTo("forum", "listSujetsByCategorie", $id);
+    }
 }
