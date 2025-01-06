@@ -27,4 +27,26 @@ class UtilisateurManager extends Manager{
             die();
         }
     }
+
+    public function foundEmail($email) {
+
+        $sql = "SELECT email from utilisateur
+        WHERE utilisateur.email = :email";
+
+        return  $this->getOneOrNullResult(
+            DAO::select($sql, ['email' => $email]), 
+            $this->className
+        );
+    }
+
+    public function foundPseudo($pseudo) {
+
+        $sql = "SELECT pseudo from utilisateur
+        WHERE utilisateur.pseudo = :pseudo";
+
+        return  $this->getOneOrNullResult(
+            DAO::select($sql, ['pseudo' => $pseudo]), 
+            $this->className
+        );
+    }
 }
