@@ -30,11 +30,11 @@ class UtilisateurManager extends Manager{
 
     public function foundEmail($email) {
 
-        $sql = "SELECT email from utilisateur
+        $sql = "SELECT * from utilisateur
         WHERE utilisateur.email = :email";
 
         return  $this->getOneOrNullResult(
-            DAO::select($sql, ['email' => $email]), 
+            DAO::select($sql, ['email' => $email], false), 
             $this->className
         );
     }

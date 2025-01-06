@@ -50,11 +50,37 @@ class SecurityController extends AbstractController{
     }
 
     public function login () {
+
+        if(isset($_POST["submit"])) {
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            
+            if($email && $password) {
+                $utilisateurManager = new UtilisateurManager();
+
+                $mail = $utilisateurManager->foundEmail($email);
+               
+                if($mail) {
+                    var_dump("mail existe");
+
+                    $hash = $mail->getMotDePasse();
+                    
+                    if(password_verify($password, $hash)) {
+                        $_SESSION['user'] = $mail;
+                        //var_dump($_SESSION["pseudo"]); die;
+                        header("Location:index.php"); exit;
+                    }        
+                } 
+            }
+        }
         // le controller communique avec la vue "connexion" (view)
         return [
             "view" => VIEW_DIR."forum/connexion.php",
             "meta_description" => "Se connecter",
             ];
     }
-    public function logout () {}
+    public function logout () {
+        unset($_SESSION["user"]);
+        header("Location:index.php");
+    }
 }

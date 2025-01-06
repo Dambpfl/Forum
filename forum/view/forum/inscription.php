@@ -16,32 +16,3 @@
         <input type="submit" name="submit" value="S'enregistrer">
     </form>
 </body>
-
-// POUR LE LOGIN:
-// -on filtre leschamps du formulaire
-
-// -si les filtre spassent, on retoruve le password correspondant au mail entré dans le formulaire
-
-// -si on le trouve, on recupere le hash de la base de données
-
-// -on retrouve l'utilisateur correspondant
-
-// -on vérifie le mot de passe password_verify
-
-// -si on arrive a se connecte, on fait passer le user en session
-
-// -si aucune des conditions ne passent (mauvais mot de passe, utilisateur inexistant, etc) -> message derreur
-
-
-// SecurityController
-
-// POUR LE REGISTER:
-// -on filtr les champs du foremulaire
-
-// -si les filtres sont valides, on vérifie que le mail n'existe pas déjà (sinon message d'erreur)
-
-// -on vérifie que le pseudo n'existe pas non plus (sinon msg derreur)
-
-// -on vériei que les 2 mot de passe du formulaire soient identiques
-
-// -on ajoute l'utilisateur en base de données
