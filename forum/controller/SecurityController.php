@@ -8,9 +8,6 @@ class SecurityController extends AbstractController{
     // contiendra les méthodes liées à l'authentification : register, login et logout
 
     public function register () {
-
-
- 
          // le controller communique avec la vue "inscription" (view)
          return [
              "view" => VIEW_DIR."forum/inscription.php",
@@ -19,9 +16,6 @@ class SecurityController extends AbstractController{
     }
 
     public function login () {
-
-
-
         // le controller communique avec la vue "connexion" (view)
         return [
             "view" => VIEW_DIR."forum/connexion.php",

@@ -13,4 +13,18 @@ class UtilisateurManager extends Manager{
     public function __construct(){
         parent::connect();
     }
+
+    public function addUser() {
+
+        $sql = "INSERT INTO utilisateur
+                VALUES ";
+
+        try {
+            return DAO::insert($sql);
+        }
+        catch(\PDOException $e){
+            echo $e->getMessage();
+            die();
+        }
+    }
 }
