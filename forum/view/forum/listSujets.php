@@ -4,25 +4,32 @@
 ?>
 
 <h1>Liste des Sujets</h1>
+<!--
+<h2><?= $categorie->getNomCategorie();  ?></h2> -->
 
-<h2><?= $categorie->getNomCategorie();  ?></h2>
 
 <?php
 foreach($sujets as $sujet ){ 
     $verrouillage = $sujet->getVerrouillage();
     ?>
     
-    <p><a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>">
-        <?= $sujet->getTitre(); ?>
-    </a>
-    par <?= $sujet->getUtilisateur() ?></p>
-
+    <p>
+        <a href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>">
+            <?= $sujet->getTitre(); ?>
+        </a>
+        par <?= $sujet->getUtilisateur() ?>
+    </p>
+    
     <?php if($verrouillage === 1) { ?>
-        <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Deverrouiller</a>
-       
+        <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
+            <i class="fa-solid fa-lock"></i>
+        </a>
+        
     <?php } else { ?>
-            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">Verrouiller</a> 
-        <?php  } ?>
+            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
+            <i class="fa-solid fa-lock-open"></i>
+            </a> 
+    <?php  } ?>
         
 <?php } ?>
 
