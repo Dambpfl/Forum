@@ -85,9 +85,8 @@ class ForumController extends AbstractController implements ControllerInterface{
     public function addSujet($id) {
         
         $categorieManager = new CategorieManager();
-        $sujetManager = new SujetManager();
-        $utilisateurManager = new UtilisateurManager();
-        $utilisateur = $_SESSION["user"];
+        $sujetManager = New SujetManager();
+        $utilisateur = $_SESSION["user"]->getId();
         $categorie = $categorieManager->findOneById($id);
 
             if (isset($_POST["submit"])) {
