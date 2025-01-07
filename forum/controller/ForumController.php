@@ -132,4 +132,12 @@ class ForumController extends AbstractController implements ControllerInterface{
         $url = $_SERVER['HTTP_REFERER'];
         header("Location:$url"); exit;
     }
+
+    public function deleteSujet($id) {
+        $sujetManager = new SujetManager();
+
+        $sujetManager->delete($id);
+        $url = $_SERVER['HTTP_REFERER'];
+        header("Location:$url"); exit;
+    }
 }

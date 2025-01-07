@@ -36,6 +36,9 @@ foreach($sujets as $sujet ){
                 </a> 
         <?php  } ?>    
     <?php } ?>
+    <?php if(App\Session::isAdmin()) {?>
+        <a href="index.php?ctrl=forum&action=deleteSujet&id=<?= $sujet->getId() ?>">Supprimer</a>
+    <?php } ?>
 
     <?php if(App\Session::getUser() && $verrouillage === 1 ){ ?>
         <i class="fa-solid fa-lock"></i>
