@@ -5,9 +5,11 @@ use App\Session;
     $sujets = $result["data"]['sujet']; 
 ?>
 
+
 <h1>Liste des Sujets</h1>
-<!--
-<h2><?= $categorie->getNomCategorie();  ?></h2> -->
+<a href="index.php?ctrl=forum&action=listCategories&id=<?= $categorie->getId() ?>"><i class="fa-solid fa-arrow-left"> retour</i></a>
+
+<h2><?= $categorie->getNomCategorie(); ?></h2>
 
 
 <?php
