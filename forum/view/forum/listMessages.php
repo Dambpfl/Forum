@@ -10,7 +10,9 @@
 
 <?php
 foreach($messages as $message ){ ?>
-    <p><?= $message->getTexte() ?></a> par : <?= $message->getUtilisateur() ?></p>
+    <p><?= $message->getUtilisateur() ?></p>
+    <p>le <?= $message->getDateCreation() ?></p>
+    <p><?= $message->getTexte() ?></a></p><br>
 <?php } ?>
 
 <?php if(App\Session::getUser() && $sujet->getVerrouillage() === 0){ ?>

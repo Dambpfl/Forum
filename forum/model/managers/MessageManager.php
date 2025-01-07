@@ -15,9 +15,11 @@ class MessageManager extends Manager{
 
     public function findMessagesBySujet($id) {
 
-        $sql = "SELECT * 
-                FROM ".$this->tableName." t 
-                WHERE t.sujet_id = :id";
+        $sql = "SELECT id_message, texte, dateCreation,
+                sujet_id, utilisateur_id 
+                FROM ".$this->tableName." t             
+                WHERE t.sujet_id = :id
+                ORDER BY dateCreation";
 
     return  $this->getMultipleResults(
             DAO::select($sql, ['id' => $id]), 

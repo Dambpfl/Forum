@@ -22,6 +22,7 @@ foreach($sujets as $sujet ){
             <?= $sujet->getTitre(); ?>
         </a>
         par <?= $sujet->getUtilisateur() ?>
+        le <?= $sujet->getdateCreation() ?>
     </p>
     
     <?php if(App\Session::isAdmin()){
@@ -35,7 +36,13 @@ foreach($sujets as $sujet ){
                 </a> 
         <?php  } ?>    
     <?php } ?>
+
+    <?php if(App\Session::getUser() && $verrouillage === 1 ){ ?>
+        <i class="fa-solid fa-lock"></i>
+    <?php } ?>
 <?php } ?>
+
+
 
 <?php if(App\Session::getUser()){ ?>
         <h2>Crée un nouveau sujet</h2>

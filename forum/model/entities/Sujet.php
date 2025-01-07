@@ -97,7 +97,8 @@ final class Sujet extends Entity{
      */ 
     public function getDateCreation()
     {
-        return $this->dateCreation;
+        $date = new \DateTime($this->dateCreation);
+        return $date->format("d/m/y à h:i");
     }
     
     /**
