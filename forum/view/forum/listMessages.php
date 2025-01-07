@@ -12,7 +12,7 @@ foreach($messages as $message ){ ?>
     <p><?= $message->getTexte() ?></a> par : <?= $message->getUtilisateur() ?></p>
 <?php } ?>
 
-<?php if(App\Session::getUser()){ ?>
+<?php if(App\Session::getUser() && $sujets->getVerrouillage() === 0){ ?>
 <h1>Répondre</h1>
 
     <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="post">
