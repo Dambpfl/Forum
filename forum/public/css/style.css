@@ -6,4 +6,33 @@
 
 h1 {
     color: rgb(0, 122, 156);
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: #E8E8E8;
+}
+
+.connexion {
+    display: grid;
+}
+
+.email {
+    height: 60px;
+    width: 448px;
+    border-radius: 50px
+}
+
+.password {
+    height: 60px;
+    width: 448px;
+    border-radius: 50px
+}
+
+.submit {
+    height: 40px;
+    width: 240px;
+    border-radius: 50px;
+    background-color: #FFB753;
 }

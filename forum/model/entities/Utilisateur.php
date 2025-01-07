@@ -115,6 +115,11 @@ final class Utilisateur extends Entity{
         return $this;
     }
 
+    public function hasRole($role)
+    {
+        return $this->role === $role;
+    }
+
     public function __toString() {
         return $this->pseudo;
     }

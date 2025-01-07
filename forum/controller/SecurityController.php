@@ -21,11 +21,11 @@ class SecurityController extends AbstractController{
 
                 $mail = $utilisateurManager->foundEmail($email);
                 if($mail) {
-                    var_dump("email existe"); die;
+                   
                 } else {
                     $name = $utilisateurManager->foundPseudo($pseudo);
                     if($name) {
-                        var_dump("pseudo existe"); die;
+                       
                     } else {
                         if($pass1 === $pass2) {
                             

@@ -12,16 +12,18 @@ foreach($messages as $message ){ ?>
     <p><?= $message->getTexte() ?></a> par : <?= $message->getUtilisateur() ?></p>
 <?php } ?>
 
+<?php if(App\Session::getUser()){ ?>
 <h1>Répondre</h1>
 
-<form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="post">
-    <p>
-        <label for="pseudo"><?= $message->getUtilisateur() ?> <!-- A changer pour nom utilisateur connecter -->
-            <input type="text" name="texte">
-        </label>
-    </p>
-    <p>
-        <input type="submit" name="submit" value="Poster">
-    </p>
-  
-</form>
+    <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujets->getId() ?>" method="post">
+        <p>
+            <label for="pseudo"><?= $message->getUtilisateur() ?> :<br><!-- A changer pour nom utilisateur connecter -->
+            <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
+            </label>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Poster">
+        </p>
+      
+    </form>
+<?php } ?>
