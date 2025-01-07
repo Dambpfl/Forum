@@ -13,8 +13,10 @@
 foreach($messages as $message ){ ?>
     <p><?= $message->getUtilisateur() ?></p>
     <p>le <?= $message->getDateCreation() ?></p>
-    <p><?= $message->getTexte() ?></a></p><br>
-    <?php if(App\Session::isAdmin()) {?>
+    <p><?= $message->getTexte() ?></a></p>
+
+<!-- Si l'utilisateur à le meme pseudo que le message alors supprimer OU admin supp n'importe quel message -->
+    <?php if(App\Session::getUser() && $message->getUtilisateur()->getPseudo() === $_SESSION['user']->getPseudo() || App\Session::isAdmin()) { ?>
         <a href="index.php?ctrl=forum&action=deleteMessage&id=<?= $message->getId() ?>">Supprimer</a>
     <?php } ?>
 <?php } ?>
