@@ -15,9 +15,13 @@ class SecurityController extends AbstractController{
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
                 $pass1 = filter_input(INPUT_POST, "pass1", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $pass2 = filter_input(INPUT_POST, "pass2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            
-            if($pseudo && $email && $pass1 && $pass2) {
-                $utilisateurManager = new UtilisateurManager();
+
+                $passRegex = filter_var($pass1, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"'/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/'")));
+                var_dump(filter_var($pass1, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"'/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/'"))));
+                echo "mdp incorrect";
+                
+                if($pseudo && $email && $pass1 && $pass2) {
+                 $utilisateurManager = new UtilisateurManager();
 
                 $mail = $utilisateurManager->foundEmail($email);
                 if($mail) {
@@ -67,7 +71,7 @@ class SecurityController extends AbstractController{
                     
                     if(password_verify($password, $hash)) {
                         $_SESSION['user'] = $mail;
-                        //var_dump($_SESSION["pseudo"]); die;
+                        
                         header("Location:index.php"); exit;
                     }        
                 } 
