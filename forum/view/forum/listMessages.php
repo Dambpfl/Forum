@@ -8,19 +8,25 @@
 
 <h3><?= $sujet->getTitre() ?></h3>
 
+<!-- Affiche les informations des messages -->
 <?php
 foreach($messages as $message ){ ?>
     <p><?= $message->getUtilisateur() ?></p>
     <p>le <?= $message->getDateCreation() ?></p>
     <p><?= $message->getTexte() ?></a></p><br>
+    <?php if(App\Session::isAdmin()) {?>
+        <a href="index.php?ctrl=forum&action=deleteMessage&id=<?= $message->getId() ?>">Supprimer</a>
+    <?php } ?>
 <?php } ?>
 
+<!-- Si utilisateur et sujet non verrouiller -->
 <?php if(App\Session::getUser() && $sujet->getVerrouillage() === 0){ ?>
+
 <h1>Répondre</h1>
 
     <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujet->getId() ?>" method="post">
         <p>
-            <label for="pseudo"><?= $message->getUtilisateur() ?> :<br><!-- A changer pour nom utilisateur connecter -->
+            <label for="pseudo"><?= $_SESSION['user'] ?> :<br><!-- A changer pour nom utilisateur connecter -->
             <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
             </label>
         </p>

@@ -63,25 +63,23 @@ class ForumController extends AbstractController implements ControllerInterface{
         
     }
 
-    public function addMessage($id) {
+    public function addMessage() {
 
-       $messageManager = new MessageManager();
-       $sujetManager = new SujetManager();
-       $utilisateurManager = new UtilisateurManager();
-       $utilisateur = 1;
-       $sujet = $sujetManager->findOneById($id);
-
-            if (isset($_POST["submit"])) {
-
+        if (isset($_POST["submit"])) {
+                $messageManager = new MessageManager();
+                $sujetManager = new SujetManager();
+                
+                $sujetId = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
                 $texte = filter_input(INPUT_POST, "texte", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-                    if($texte) {
-                    $messageManager->add(["sujet_id" => $id,
+                
+                if($texte && $sujetId) {
+                        $utilisateur = $_SESSION["user"]->getId();
+                        $messageManager->add(["sujet_id" => $sujetId,
                                           "utilisateur_id" => $utilisateur,
                                           "texte" => $texte]);
                     }
             }
-        $this->redirectTo("forum", "listMessagesBySujet", $id);
+        $this->redirectTo("forum", "listMessagesBySujet", $sujetId);
     }
 
     public function addSujet($id) {
@@ -89,7 +87,7 @@ class ForumController extends AbstractController implements ControllerInterface{
         $categorieManager = new CategorieManager();
         $sujetManager = new SujetManager();
         $utilisateurManager = new UtilisateurManager();
-        $utilisateur = 1;
+        $utilisateur = $_SESSION["user"];
         $categorie = $categorieManager->findOneById($id);
 
             if (isset($_POST["submit"])) {
@@ -126,5 +124,13 @@ class ForumController extends AbstractController implements ControllerInterface{
         }
 
         $this->redirectTo("forum", "listSujetsByCategorie", $idCategorie);
+    }
+
+    public function deleteMessage($id) {
+        $messageManager = new MessageManager();
+
+        $messageManager->delete($id);
+        $url = $_SERVER['HTTP_REFERER'];
+        header("Location:$url"); exit;
     }
 }
