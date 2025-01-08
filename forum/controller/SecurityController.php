@@ -10,29 +10,49 @@ class SecurityController extends AbstractController{
 
     public function register () {
 
+        // si formulaire submit
         if(isset($_POST["submit"])) {
+                // check filtre
                 $pseudo = filter_input(INPUT_POST, "pseudo", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_VALIDATE_EMAIL);
+                $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
                 $pass1 = filter_input(INPUT_POST, "pass1", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $pass2 = filter_input(INPUT_POST, "pass2", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-                $passRegex = filter_var($pass1, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"'/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/'")));
-                var_dump(filter_var($pass1, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"'/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/'"))));
-                echo "mdp incorrect";
-                
-                if($pseudo && $email && $pass1 && $pass2) {
-                 $utilisateurManager = new UtilisateurManager();
+                // condition regex
+                $passRegex = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$/";
 
-                $mail = $utilisateurManager->foundEmail($email);
-                if($mail) {
-                   
+                // si filtre ok
+                if($pseudo && $email && $pass1 && $pass2) {
+                    $utilisateurManager = new UtilisateurManager();
+                 
+                // filtre regex
+                $passValid = filter_var($pass1, FILTER_VALIDATE_REGEXP, ["options" => ["regexp" => $passRegex],]);
+
+                // si pass valide
+                if($passValid) {
+                    var_dump("mdp valide");
+                    // continue
                 } else {
+                    echo "Mot de passe invalide"; die;
+                }
+
+                //  verif si mail existe dans la bdd
+                $mail = $utilisateurManager->foundEmail($email);
+
+                if($mail) {
+                   // si mail deja utilisé
+                } else {
+                    // verif si le pseudo existe dans la bdd
                     $name = $utilisateurManager->foundPseudo($pseudo);
+
+                    
                     if($name) {
-                       
+                       // si pseudo deja utilisé
                     } else {
+                        // verif si les deux mdp correspondent
                         if($pass1 === $pass2) {
                             
+                            // add l'utilisateur dans la bdd avec mdp hashé
                             $utilisateurManager->add([
                                 'pseudo' => $pseudo,
                                 'email' => $email,
