@@ -4,16 +4,18 @@
 ?>
 
 <a href="index.php?ctrl=forum&action=listSujetsByCategorie&id=<?= $sujet->getCategorie()->getId() ?>"><i class="fa-solid fa-arrow-left"> retour</i></a>
-<h2>Liste des messages</h2>
-
 <h3><?= $sujet->getTitre() ?></h3>
 
+
 <!-- Affiche les informations des messages -->
-<?php
-foreach($messages as $message ){ ?>
-    <p><?= $message->getUtilisateur() ?></p>
-    <p>le <?= $message->getDateCreation() ?></p>
-    <p><?= $message->getTexte() ?></a></p>
+<div class="container-message">
+    <?php foreach($messages as $message ){ ?>
+        <div class="message-content">
+            <div class="message-user"><p><?= $message->getUtilisateur() ?></p></div>
+            <div class="message-date"><p>le <?= $message->getDateCreation() ?></p></div>
+            <div class="message-text"><p><?= $message->getTexte() ?></a></p></div>
+        </div>
+</div>
 
 <!-- Si l'utilisateur à le meme pseudo que le message alors supprimer OU admin supp n'importe quel message -->
     <?php if(App\Session::getUser() && $message->getUtilisateur()->getPseudo() === $_SESSION['user']->getPseudo() || App\Session::isAdmin()) { ?>
