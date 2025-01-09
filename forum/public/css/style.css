@@ -112,16 +112,18 @@ footer {
 }
 
 /* Sujet */
-.container-sujet {
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
-}
 
 .retour {
     display: flex;
     justify-content: center;
     margin-top: 35px;
+}
+
+.container-sujet {
+    margin-top: 35px;
+    width: 360px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sujet {
@@ -133,15 +135,38 @@ footer {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    box-shadow: 0px 5px 5px #FF0000;
+    box-shadow: 0px 5px 6px rgba(255, 0, 0, 0.35);
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.sujet-lock {
+    color: rgb(232, 14, 14);
+    margin-right: 10px;
+}
+
+.sujet-lock-admin {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.supp-sujet {
+    margin-left: 5px;
+    text-decoration: none;
 }
 
 .name-user-sujet {
     position: absolute;
+    right: 30px;
+    bottom: 2px;
 }
 
 .date-post-sujet {
     position: absolute;
+    left: 30px;
+    top: 2px;
 }
 
 h2 {
@@ -219,4 +244,11 @@ h2 {
     margin-right: 10px;
     word-wrap: break-word;
     white-space: pre-wrap;
+}
+
+.supp-message {
+    display: flex;
+    justify-content: right;
+    text-decoration: none;
+    margin-right: 10px;
 }

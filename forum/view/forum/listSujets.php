@@ -11,44 +11,46 @@ use App\Session;
 
 
 
-<?php
-foreach($sujets as $sujet ){ 
-    $verrouillage = $sujet->getVerrouillage();
+<div class="container-sujet">        
+    <?php foreach($sujets as $sujet ){ 
+        $verrouillage = $sujet->getVerrouillage();
     ?>
-    
-    <div class="container-sujet">        
-            <p>
+            <div class="sujet-wrapper">
                 <a class="sujet" href="index.php?ctrl=forum&action=listMessagesBySujet&id=<?= $sujet->getId() ?>">
+                    <div class="sujet-lock">
+                        <?php if(App\Session::getUser() && $verrouillage === 1 ){ ?>
+                                <i class="fa-solid fa-lock"></i>
+                        <?php } ?>
+                    </div>
                     <?= $sujet->getTitre(); ?>
+                    <div class="name-user-sujet">
+                        Créer par : <?= $sujet->getUtilisateur() ?>
+                    </div>
+                    <div class="date-post-sujet">
+                        le <?= $sujet->getdateCreation() ?>
+                    </div>
                 </a>
-                <div class="name-user-sujet">
-                    par <?= $sujet->getUtilisateur() ?>
-                </div>
-                <div class="date-post-sujet">
-                    le <?= $sujet->getdateCreation() ?>
-                </div>
-            </p>
-    </div>
-    
-    <?php if(App\Session::isAdmin()){
-            if($verrouillage === 1) { ?>
-                <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
-                    <i class="fa-solid fa-lock"></i>
-                </a>        
-    <?php } else { ?>
-                <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
-                    <i class="fa-solid fa-lock-open"></i>
-                </a> 
-        <?php  } ?>    
-    <?php } ?>
-    <?php if(App\Session::isAdmin()) {?>
-        <a href="index.php?ctrl=forum&action=deleteSujet&id=<?= $sujet->getId() ?>">Supprimer</a>
-    <?php } ?>
 
-    <?php if(App\Session::getUser() && $verrouillage === 1 ){ ?>
-        <i class="fa-solid fa-lock"></i>
-    <?php } ?>
-<?php } ?>
+                <div class="sujet-lock-admin">
+                    <?php if(App\Session::isAdmin()){
+                        if($verrouillage === 1) { ?>
+                            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
+                                <i class="fa-solid fa-lock"></i>
+                            </a>        
+                        <?php } else { ?>
+                            <a href="index.php?ctrl=forum&action=verrouillerSujet&id=<?= $sujet->getId() ?>">
+                                <i class="fa-solid fa-lock-open"></i>
+                            </a> 
+                        <?php  } ?>    
+                    <?php } ?>
+                        <?php if(App\Session::isAdmin()) {?>
+                            <a class="supp-sujet" href="index.php?ctrl=forum&action=deleteSujet&id=<?= $sujet->getId() ?>">Supprimer</a>
+                        <?php } ?>
+                </div>
+                            
+                </div>
+        <?php } ?>
+</div>
 
 
 <h2>Crée un nouveau sujet</h2>
