@@ -14,25 +14,69 @@ body {
     background-color: #E8E8E8;
 }
 
+footer {
+    margin-top: 35px;
+}
+
+/* Connexion */
+.container-connexion {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
 .connexion {
     display: grid;
+}
+
+.pseudo {
+    height: 60px;
+    width: 448px;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 10px;
+    font-style: italic;
 }
 
 .email {
     height: 60px;
     width: 448px;
-    border-radius: 50px
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 10px;
+    font-style: italic;
 }
 
 .password {
     height: 60px;
     width: 448px;
-    border-radius: 50px
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 10px;
+    font-style: italic;
 }
 
 .submit {
     height: 40px;
     width: 240px;
-    border-radius: 50px;
+    border-radius: 20px;
     background-color: #FFB753;
+}
+
+/* Inscription */
+.container-inscription {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.inscription {
+    display: grid;
+}
+
+.t-pseudo,
+.t-email,
+.t-password {
+    margin-left: 15px;
+    margin-bottom: 5px;
 }
