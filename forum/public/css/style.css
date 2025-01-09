@@ -8,6 +8,7 @@ h1 {
     color: rgb(0, 122, 156);
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 body {
@@ -27,6 +28,12 @@ footer {
     justify-content: right;
     column-gap: 10px;
     margin-right: 10px;
+}
+
+.retour {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 /* Connexion */
@@ -99,6 +106,11 @@ footer {
     margin-top: 35px;
 }
 
+.container-categorie a {
+    text-decoration: none;
+    color: black;
+}
+
 .categorie {
     background-color: #FFB753;
     height: 75px;
@@ -108,16 +120,11 @@ footer {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    box-shadow: 0px 5px 5px #FF0000;
+    box-shadow: 0px 5px 6px rgba(255, 0, 0, 0.35);
 }
 
 /* Sujet */
 
-.retour {
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
-}
 
 .container-sujet {
     margin-top: 35px;
@@ -148,12 +155,13 @@ footer {
 
 .sujet-lock-admin {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     margin-bottom: 10px;
+    margin-right: 35px;
 }
 
 .supp-sujet {
-    margin-left: 5px;
+    margin-left: 10px;
     text-decoration: none;
 }
 
@@ -172,6 +180,7 @@ footer {
 h2 {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .container-newSujet {
@@ -187,6 +196,7 @@ h2 {
     flex-direction: column;
     padding-top: 10px;
     margin-top: 10px;
+    box-shadow: 0px 5px 6px rgba(131, 208, 203, 0.35);
 }
 
 .t-sujet {
@@ -203,6 +213,7 @@ h2 {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
+    box-shadow: 0px 5px 6px rgba(131, 208, 203, 0.35);
 }
 
 .s-submit {
@@ -222,7 +233,7 @@ textarea {
 /* Message */
 .container-message {
     display: grid;
-    row-gap: 10px;
+    row-gap: 20px;
     justify-content: center;
     margin-top: 35px;
 }
@@ -232,6 +243,7 @@ textarea {
     border-radius: 10px;
     width: 700px;
     position: relative;
+    box-shadow: 0px 5px 6px rgba(255, 0, 0, 0.35);
 }
 
 .message-user {
@@ -269,4 +281,49 @@ textarea {
     justify-content: right;
     text-decoration: none;
     margin-right: 10px;
+    position: absolute;
+    right: -30px;
+    bottom: -3px;
+    color: rgba(255, 0, 0, 0.35);
+}
+
+.container-newMessage {
+    display: flex;
+    justify-content: center;
+}
+
+.container-t-message {
+    background-color: #83D0CB;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    margin-top: 10px;
+    box-shadow: 0px 5px 6px rgba(131, 208, 203, 0.35);
+}
+
+
+.t-message {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+
+.container-mSubmit{
+    background-color: #b9b9b9;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    box-shadow: 0px 5px 6px rgba(131, 208, 203, 0.35);
+}
+
+.m-submit {
+    background-color: #83D0CB;
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
 }

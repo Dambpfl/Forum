@@ -44,7 +44,7 @@ use App\Session;
                         <?php  } ?>    
                     <?php } ?>
                         <?php if(App\Session::isAdmin()) {?>
-                            <a class="supp-sujet" href="index.php?ctrl=forum&action=deleteSujet&id=<?= $sujet->getId() ?>">Supprimer</a>
+                            <a class="supp-sujet" href="index.php?ctrl=forum&action=deleteSujet&id=<?= $sujet->getId() ?>"><i class="fa-solid fa-x"></i></a>
                         <?php } ?>
                 </div>
                             
@@ -61,9 +61,9 @@ use App\Session;
             <form action="index.php?ctrl=forum&action=addSujet&id=<?= $categorie->getId() ?>" method="post">
                 <div class="container-t-sujet">
                     <div class="t-sujet">
-                            <label for="titre">Titre du sujet :</label>
-                            <input type="text" name="titre">
-                        </div>
+                        <label for="titre">Titre du sujet :</label>
+                        <input type="text" name="titre">
+                    </div>
                         <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50" style="width:760px; height: 160px;"></textarea>
                 </div>
                 

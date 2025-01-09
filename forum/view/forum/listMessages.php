@@ -14,30 +14,32 @@
             <div class="message-user"><p><?= $message->getUtilisateur() ?></p></div>
             <div class="message-date"><p>le <?= $message->getDateCreation() ?></p></div>
             <div class="message-text"><p><?= $message->getTexte() ?></a></p></div>
+            <!-- Si l'utilisateur à le meme pseudo que le message alors supprimer OU admin supp n'importe quel message -->
+            <?php if(App\Session::getUser() && $message->getUtilisateur()->getPseudo() === $_SESSION['user']->getPseudo() || App\Session::isAdmin()) { ?>
+                <a class= "supp-message" href="index.php?ctrl=forum&action=deleteMessage&id=<?= $message->getId() ?>"><i class="fa-solid fa-rectangle-xmark"></i></a>
+            <?php } ?>
         </div>
         
-        <!-- Si l'utilisateur à le meme pseudo que le message alors supprimer OU admin supp n'importe quel message -->
-        <?php if(App\Session::getUser() && $message->getUtilisateur()->getPseudo() === $_SESSION['user']->getPseudo() || App\Session::isAdmin()) { ?>
-            <a class= "supp-message" href="index.php?ctrl=forum&action=deleteMessage&id=<?= $message->getId() ?>">Supprimer</a>
-            <?php } ?>
-        <?php } ?>
+    <?php } ?>
 </div>
             
             <!-- Si utilisateur et sujet non verrouiller -->
-            <?php if(App\Session::getUser() && $sujet->getVerrouillage() === 0){ ?>
+<?php if(App\Session::getUser() && $sujet->getVerrouillage() === 0){ ?>
                 
-                <h1>Répondre</h1>
+    <h2>Répondre</h2>
+    <div class="container-newMessage">
+        <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujet->getId() ?>" method="post">
+                    <div class="container-t-message">
+                        <div class="t-message">
+                            <label for="pseudo"><?= $_SESSION['user'] ?> :<br>
+                        </div>
+                        <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"style="width:760px; height: 160px;"></textarea>
+                    </div>    
                 
-                <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujet->getId() ?>" method="post">
-                    <p>
-                        <label for="pseudo"><?= $_SESSION['user'] ?> :<br><!-- A changer pour nom utilisateur connecter -->
-                        <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
-                    </label>
-                </p>
-                <p>
-                    <input type="submit" name="submit" value="Poster">
-                </p>
-                
-            </form>
-            <?php } ?>
-            
+                    <div class="container-mSubmit">
+                        <input class="m-submit"type="submit" name="submit" value="Poster">
+                    </div>
+                    
+                </form>
+    </div>
+<?php } ?>     
