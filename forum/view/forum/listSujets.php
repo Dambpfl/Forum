@@ -61,11 +61,10 @@ use App\Session;
             <form action="index.php?ctrl=forum&action=addSujet&id=<?= $categorie->getId() ?>" method="post">
                 <div class="container-t-sujet">
                     <div class="t-sujet">
-                            <label for="titre">Titre :</label>
+                            <label for="titre">Titre du sujet :</label>
                             <input type="text" name="titre">
-                            <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
-                    </div>
-                    
+                        </div>
+                        <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50" style="width:760px; height: 160px;"></textarea>
                 </div>
                 
                         <div class="container-submit">

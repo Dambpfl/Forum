@@ -185,20 +185,38 @@ h2 {
     font-size: 15px;
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
 .t-sujet {
     margin-left: 10px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 
 .container-submit{
     background-color: #b9b9b9;
     border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
 }
 
 .s-submit {
     background-color: #83D0CB;
+    width: 100px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+textarea {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
 }
 
 /* Message */
