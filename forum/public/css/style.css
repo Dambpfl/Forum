@@ -178,8 +178,10 @@ h2 {
 
 /* Message */
 .container-message {
-    display: flex;
+    display: grid;
+    row-gap: 10px;
     justify-content: center;
+    margin-top: 35px;
 }
 
 .message-content {
@@ -192,13 +194,14 @@ h2 {
 .message-user {
     font-size: 20px;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 .message-date {
     background-color: #F2F2F2;
     position: absolute;
     right: 0px;
-    top: 11px;
+    top: 13px;
     border-radius: 10px 0px 0px 0px;
     width: 135px;
     display: flex;
@@ -209,4 +212,11 @@ h2 {
 .message-text {
     background-color: #F2F2F2;
     border-radius: 0px 0px 10px 10px;
+}
+
+.message-text p {
+    margin-left: 10px;
+    margin-right: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
