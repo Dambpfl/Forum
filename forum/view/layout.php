@@ -35,9 +35,18 @@
                             <?php } else{ ?>                                                           
                                 <a href="index.php?ctrl=security&action=login">Connexion</a>
                                 <a href="index.php?ctrl=security&action=register">Inscription</a>     
-                            <?php } ?>                                                 
+                            <?php } ?>                                          
                         </div>
-                    </nav>
+                    </nav>                                     
+                            <!-- Ouverture bouton -->
+                    <div class="nav-toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                         <!-- Fermeture bouton -->
+                    <div class="nav-close" id="nav-close">
+                        <i class="ri-close-large-line"></i>
+                    </div>       
+                             
                 </header>
                 
                 <main id="forum">

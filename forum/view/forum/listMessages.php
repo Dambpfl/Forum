@@ -36,7 +36,7 @@
                 <div class="t-message">
                     <label for="pseudo"><?= $_SESSION['user'] ?> :<br>
                 </div>
-                <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"style="width:760px; height: 160px;"></textarea>
+                <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
             <div class="container-mSubmit">
                 <input class="m-submit"type="submit" name="submit" value="Poster">
             </div>     

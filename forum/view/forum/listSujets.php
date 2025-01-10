@@ -69,7 +69,7 @@ use App\Session;
                     <label for="titre">Titre du sujet :</label>
                     <input type="text" name="titre">
                 </div>
-                <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50" style="width:760px; height: 160px;"></textarea>
+                <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
             </div>
                 <div class="container-submit">
                     <input class="s-submit" type="submit" name="submit" value="Poster">
