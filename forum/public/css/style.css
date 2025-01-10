@@ -11,7 +11,7 @@
 }
 
 h1 {
-    color: rgb(0, 122, 156);
+    color: rgb(0, 70, 90);
     display: flex;
     justify-content: center;
     margin-top: 20px;
@@ -50,48 +50,55 @@ nav a {
     color: black;
 }
 
-.retour {
+.retour-sujet {
     display: flex;
-    justify-content: center;
-    margin-top: 15px;
+    text-decoration: none;
+    color: #8b83d0;
+    font-size: 25px;
+    margin-left: 30px;
+}
+
+.retour{
+    display: flex;
+    text-decoration: none;
+    color: #8b83d0;
+    font-size: 25px;
 }
 
 /* Connexion */
 .container-connexion {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 35px;
 }
 
 .connexion {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
 }
 
-.pseudo {
-    height: 60px;
-    width: 448px;
-    border-radius: 20px;
-    padding-left: 10px;
-    font-size: 10px;
-    font-style: italic;
+.t-pseudo,
+.t-email,
+.t-password {
+    align-self: flex-start;
+    margin-left: 10px;
 }
 
-.email {
-    height: 60px;
-    width: 448px;
-    border-radius: 20px;
-    padding-left: 10px;
-    font-size: 10px;
-    font-style: italic;
-}
-
+.pseudo,
+.email,
 .password {
     height: 60px;
     width: 448px;
     border-radius: 20px;
     padding-left: 10px;
-    font-size: 10px;
+    font-size: 14px;
     font-style: italic;
+    margin-bottom: 10px;
+    border: 1px solid #cfcfcf;
+    text-align: left;
 }
 
 .submit {
@@ -99,6 +106,9 @@ nav a {
     width: 240px;
     border-radius: 20px;
     background-color: #FFB753;
+    border: 1px solid #9B9B9B;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* Inscription */
@@ -109,7 +119,10 @@ nav a {
 }
 
 .inscription {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
 }
 
 .t-pseudo,
@@ -121,12 +134,18 @@ nav a {
 
 /* Categorie */
 .container-categorie {
-    display: flex;
-    justify-content: center;
-    margin-top: 35px;
+    margin-bottom: 20px;
 }
 
-.container-categorie a {
+.categorie-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.categorie-wrapper a {
     text-decoration: none;
     color: black;
 }
@@ -148,10 +167,15 @@ nav a {
 
 
 .container-sujet {
-    margin-top: 35px;
+    margin-top: 20px;
     width: 360px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.sujet-wrapper {
+    position: relative;
+    margin-bottom: 25px;
 }
 
 .sujet {
@@ -175,10 +199,12 @@ nav a {
 }
 
 .sujet-lock-admin {
+    position: absolute;
+    top: 4px;
+    right: 31px;
     display: flex;
-    justify-content: right;
-    margin-bottom: 10px;
-    margin-right: 35px;
+    gap: 0px;
+    font-size: 14px;
 }
 
 .supp-sujet {
@@ -190,22 +216,37 @@ nav a {
     font-family: var(--body-font);
 }
 
-.name-user-sujet {
+.user-sujet {
     position: absolute;
+    display: flex;
     right: 30px;
     bottom: 2px;
+    gap: 2px;
+    font-size: 10px;
+}
+
+.t-before-pseudo {
+    font-style: italic;
+}
+
+.name-user-sujet {
+    font-family: var(--body-font);
+    transform: translateY(-2px);
 }
 
 .date-post-sujet {
     position: absolute;
     left: 30px;
     top: 2px;
+    font-style: italic;
+    font-size: 12px;
 }
 
 h2 {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    color: rgb(0, 70, 90);
 }
 
 .container-newSujet {
@@ -260,9 +301,8 @@ textarea {
 /* Message */
 .container-message {
     display: grid;
-    row-gap: 20px;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 20px;
 }
 
 .message-content {
@@ -271,6 +311,7 @@ textarea {
     width: 700px;
     position: relative;
     box-shadow: 0px 5px 6px rgba(255, 0, 0, 0.35);
+    margin-bottom: 25px;
 }
 
 .mess-user-role {

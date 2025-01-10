@@ -4,11 +4,11 @@
 ?>
 
 <h1><?= $sujet->getTitre() ?></h1>
-<a class="retour" href="index.php?ctrl=forum&action=listSujetsByCategorie&id=<?= $sujet->getCategorie()->getId() ?>"><i class="fa-solid fa-arrow-left"> retour</i></a>
 
 
 <!-- Affiche les informations des messages -->
 <div class="container-message">
+    <a class="retour" href="index.php?ctrl=forum&action=listSujetsByCategorie&id=<?= $sujet->getCategorie()->getId() ?>"><i class="ri-arrow-left-box-fill"></i></a>
     <?php foreach($messages as $message ){ ?>
         <div class="message-content">
             <div class="mess-user-role">
@@ -32,17 +32,14 @@
     <h2>Répondre</h2>
     <div class="container-newMessage">
         <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujet->getId() ?>" method="post">
-                    <div class="container-t-message">
-                        <div class="t-message">
-                            <label for="pseudo"><?= $_SESSION['user'] ?> :<br>
-                        </div>
-                        <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"style="width:760px; height: 160px;"></textarea>
-                    </div>    
-                
-                    <div class="container-mSubmit">
-                        <input class="m-submit"type="submit" name="submit" value="Poster">
-                    </div>
-                    
-                </form>
+            <div class="container-t-message">
+                <div class="t-message">
+                    <label for="pseudo"><?= $_SESSION['user'] ?> :<br>
+                </div>
+                <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"style="width:760px; height: 160px;"></textarea>
+            <div class="container-mSubmit">
+                <input class="m-submit"type="submit" name="submit" value="Poster">
+            </div>     
+        </form>
     </div>
 <?php } ?>     
