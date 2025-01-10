@@ -327,3 +327,33 @@ textarea {
     height: 20px;
     border-radius: 5px;
 }
+
+/* Liste des utilisateurs */ 
+table, td {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+}
+
+thead {
+    background-color: #FFB753;
+}
+
+.container-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.id-table {
+    width: 50px;
+}
+
+.pseudo-table {
+    width: 100px;
+}
+
+.role-table {
+    width: 100px;
+}
