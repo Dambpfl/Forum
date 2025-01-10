@@ -11,7 +11,10 @@
 <div class="container-message">
     <?php foreach($messages as $message ){ ?>
         <div class="message-content">
-            <div class="message-user"><p><?= $message->getUtilisateur() ?></p></div>
+            <div class="mess-user-role">
+                <div class="message-user"><p><?= $message->getUtilisateur() ?></p></div>
+                <div class="message-role"><p><?= $message->getUtilisateur()->getRole() ?></p></div>
+            </div>
             <div class="message-date"><p>le <?= $message->getDateCreation() ?></p></div>
             <div class="message-text"><p><?= $message->getTexte() ?></a></p></div>
             <!-- Si l'utilisateur à le meme pseudo que le message alors supprimer OU admin supp n'importe quel message -->

@@ -22,7 +22,9 @@ use App\Session;
                                 <i class="fa-solid fa-lock"></i>
                         <?php } ?>
                     </div>
-                    <?= $sujet->getTitre(); ?>
+                    <div class="titre-sujet">
+                        <?= $sujet->getTitre(); ?>
+                    </div>
                     <div class="name-user-sujet">
                         Créer par : <?= $sujet->getUtilisateur() ?>
                     </div>
