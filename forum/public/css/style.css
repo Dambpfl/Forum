@@ -494,6 +494,7 @@ thead {
         flex-direction: column;
         justify-content: flex-start;
         transition: left 0.4s ease;
+        z-index: 1000;
     }
     
     #nav-left {
@@ -554,6 +555,10 @@ thead {
 }
 
 @media screen and (max-width: 450px) {
+    nav {
+        z-index: 1000;
+    }
+    
     #nav-left {
         display: flex;
         flex-direction: column;
@@ -573,6 +578,10 @@ thead {
 }
 
 @media screen and (max-width: 400px) {
+    nav {
+        z-index: 1000;
+    }
+
     #nav-left {
         display: flex;
         flex-direction: column;
