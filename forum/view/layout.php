@@ -19,7 +19,7 @@
                 <h3 class="message" style="color: red"><?= App\Session::getFlash("error") ?></h3>
                 <h3 class="message" style="color: green"><?= App\Session::getFlash("success") ?></h3>
                 <header>
-                    <nav>
+                    <nav id="nav">
                         <div id="nav-left">
                             <a href="index.php">Accueil</a>
                             <a href="index.php?ctrl=forum&action=index">Catégories</a>
@@ -37,15 +37,15 @@
                                 <a href="index.php?ctrl=security&action=register">Inscription</a>     
                             <?php } ?>                                          
                         </div>
+                        <!-- Fermeture bouton -->
+                        <div class="nav-close" id="nav-close">
+                            <i class="ri-close-large-line"></i>
+                        </div>       
                     </nav>                                     
                             <!-- Ouverture bouton -->
                     <div class="nav-toggle" id="nav-toggle">
                         <i class="ri-menu-line"></i>
                     </div>
-                         <!-- Fermeture bouton -->
-                    <div class="nav-close" id="nav-close">
-                        <i class="ri-close-large-line"></i>
-                    </div>       
                              
                 </header>
                 

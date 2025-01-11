@@ -5,12 +5,14 @@ const nav = document.getElementById("nav"),
 
 if(ouverture) {
     ouverture.addEventListener('click', () =>{
-        nav.classList.add('show-boutons')
+        nav.style.left = "-65%";
+        document.getElementById('nav-toggle').style.display = "none";
     })
 }
 
 if(fermeture) {
     fermeture.addEventListener('click', () =>{
-        nav.classList.remove('show-boutons')
+        nav.style.left = "-100%";
+        document.getElementById('nav-toggle').style.display = "block";
     })
 }
