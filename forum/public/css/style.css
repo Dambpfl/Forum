@@ -413,6 +413,18 @@ textarea {
     border-radius: 5px;
 }
 
+/* Accueil */
+.presentation {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.titre {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 20px;
+}
+
 /* Liste des utilisateurs */ 
 table, td {
     border: 1px solid black;
@@ -466,8 +478,13 @@ thead {
 }
 
 @media screen and (max-width: 530px) {
+    .titre {
+        font-size: 10px;
+        margin-bottom: 35px;
+    }
+    
     .message-content {
-        width: 300px;
+        width: 320px;
     }
 
     .container-t-message textarea {

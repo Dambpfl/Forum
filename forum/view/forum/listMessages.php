@@ -34,7 +34,7 @@
         <form action="index.php?ctrl=forum&action=addMessage&id=<?= $sujet->getId() ?>" method="post">
             <div class="container-t-message">
                 <div class="t-message">
-                    <label for="pseudo"><?= $_SESSION['user'] ?> :<br>
+                    <label for="pseudo"><?= $_SESSION['user'] ?><br>
                 </div>
                 <textarea name="texte" id="texte" placeholder="Tapez votre message ici.." rows="10" cols="50"></textarea>
             <div class="container-mSubmit">
